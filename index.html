@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Intersection Tooltip venn.js example</title>
+<style>
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    background:#EDEDED;
+}
+
+#venn,#venn2,#venn3,#venn4 {
+ float:left;
+}
+</style>
+</head>
+
+<body>
+    <div id="venn"></div>
+    <div id="venn2"></div>
+    <div id="venn3"></div>
+    <div id="venn4"></div>
+    <div id="venn5"></div>
+</body>
+
+<style>
+.venntooltip {
+  position: absolute;
+  text-align: center;
+  width: 128px;
+  height: 16px;
+  background: #333;
+  color: #ddd;
+  padding: 2px;
+  border: 0px;
+  border-radius: 8px;
+  opacity: 0;
+}
+</style>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="node_modules/venn.js/venn.js"></script>
+<script src="./data.jsonp"></script>
+
+<script>
+
+var chart = venn.VennDiagram()
+                 .width(770)
+                 .height(770);
+
+var div = d3.select("#venn")
+div.datum(otherOverlap).call(chart);
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "venntooltip");
+
+div.selectAll("path")
+    .style("stroke-opacity", 0)
+    .style("stroke", "#fff")
+    .style("stroke-width", 3)
+
+
+
+var chart1 = venn.VennDiagram()
+                 .width(500)
+                 .height(500);
+
+var div = d3.select("#venn2")
+div.datum(moz).call(chart1);
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "venntooltip");
+
+div.selectAll("path")
+    .style("stroke-opacity", 0)
+    .style("stroke", "#fff")
+    .style("stroke-width", 3)
+    .style("fill","red")
+    .style("fill-opacity",0.2)
+
+
+var chart2 = venn.VennDiagram()
+                 .width(500)
+                 .height(500);
+
+var div = d3.select("#venn3")
+div.datum(dev).call(chart2);
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "venntooltip");
+
+div.selectAll("path")
+    .style("stroke-opacity", 0)
+    .style("stroke", "#fff")
+    .style("stroke-width", 3)
+    .style("fill","green")
+    .style("fill-opacity",0.2)
+
+
+var chart3 = venn.VennDiagram()
+                 .width(500)
+                 .height(500);
+
+var div = d3.select("#venn4")
+div.datum(other).call(chart3);
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "venntooltip");
+
+div.selectAll("path")
+    .style("stroke-opacity", 0)
+    .style("stroke", "#fff")
+    .style("stroke-width", 3)
+    .style("fill","blue")
+    .style("fill-opacity",0.2)
+
+var chart4 = venn.VennDiagram()
+                 .width(800)
+                 .height(800);
+
+var div = d3.select("#venn5")
+div.datum(sets).call(chart);
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "venntooltip");
+
+div.selectAll("path")
+    .style("stroke-opacity", 0)
+    .style("stroke", "#fff")
+    .style("stroke-width", 3)
+
+</script>
+</html>
